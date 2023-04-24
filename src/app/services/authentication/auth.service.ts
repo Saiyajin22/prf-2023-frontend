@@ -16,4 +16,10 @@ export class AuthService {
       headers: this.headers,
     });
   }
+
+  login(): Observable<boolean> {
+    return this.httpClient.get<boolean>(environment.baseUrl + '/users/authenticated', {
+      headers: this.headers,
+    });
+  }
 }

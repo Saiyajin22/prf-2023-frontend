@@ -1,0 +1,23 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 50vh;
+  padding-top: 30px;
+}
+
+.login-title-and-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.element {
+  margin-top: 30px;
+}
