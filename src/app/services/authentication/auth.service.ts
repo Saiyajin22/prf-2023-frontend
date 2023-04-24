@@ -16,6 +16,7 @@ export class AuthService {
       .get<boolean>(environment.baseUrl + '/users/authenticated', {
         headers: this.headers,
         responseType: 'json',
+        withCredentials: true,
       })
       .pipe(
         catchError((error) => {
@@ -28,15 +29,26 @@ export class AuthService {
   }
 
   login(username?: string, password?: string): Observable<string> {
-    return this.httpClient.post<string>(
-      environment.baseUrl + '/users/login',
-      {
-        username: username,
-        password: password,
-      },
-      {
-        headers: this.headers,
-      }
-    );
+    return this.httpClient
+      .post<string>(
+        environment.baseUrl + '/users/login',
+        {
+          username: username,
+          password: password,
+        },
+        {
+          headers: this.headers,
+          responseType: 'json',
+          withCredentials: true,
+        }
+      )
+      .pipe(
+        catchError((error) => {
+          if (error.status === 400) {
+            return of(error.errorMessage);
+          }
+          throw error;
+        })
+      );
   }
 }
