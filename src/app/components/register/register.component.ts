@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  register() {
+    throw new Error('Method not implemented.');
   }
 
 }

@@ -1,1 +1,29 @@
-<p>register works!</p>
+<div class="register-container">
+  <mat-card>
+    <mat-card-title>Register</mat-card-title>
+    <mat-card-content>
+      <form (ngSubmit)="register()" class="register-form">
+        <mat-form-field hintLabel="Please provide a simple username">
+          <mat-label>Username</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+        <mat-form-field hintLabel="Your password should be at least 8 characters, include numbers too">
+          <mat-label>Password</mat-label>
+          <input matInput type="password">
+        </mat-form-field>
+        <mat-form-field hintLabel="Repeat your password here">
+          <mat-label>Repeat Password</mat-label>
+          <input matInput type="password">
+        </mat-form-field>
+        <mat-form-field hintLabel="Currently: 3 - Admin, 1 - User">
+          <mat-label>Access Level</mat-label>
+          <input matInput type="number" value="1" disabled>
+        </mat-form-field>
+        <mat-form-field hintLabel="Enter the date of your birth">
+          <mat-label>Birthdate</mat-label>
+          <input matInput type="date">
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
