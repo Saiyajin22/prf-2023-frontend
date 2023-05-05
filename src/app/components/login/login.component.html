@@ -22,10 +22,11 @@
             required
           />
         </mat-form-field>
+        <p class="login-error" *ngIf="errorMessage">{{errorMessage}}</p>
         <button class="element" mat-raised-button color="primary" type="submit">
           Login
         </button>
-        <p class="login-error" *ngIf="errorMessage">{{errorMessage}}</p>
+        <button class="element" mat-raised-button color="primary" [routerLink]="['/register']">Register</button>
       </form>
     </mat-card-content>
   </mat-card>

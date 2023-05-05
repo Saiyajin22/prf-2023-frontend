@@ -51,4 +51,29 @@ export class AuthService {
         })
       );
   }
+
+  register(username?: string, password?: string, birthdate?: Date): Observable<string> {
+    return this.httpClient
+      .post<string>(
+        environment.baseUrl + '/users/register',
+        {
+          username: username,
+          password: password,
+          birthdate: birthdate
+        },
+        {
+          headers: this.headers,
+          responseType: 'json',
+          withCredentials: true,
+        }
+      )
+      .pipe(
+        catchError((error) => {
+          if (error.status === 400) {
+            return of(error.errorMessage);
+          }
+          throw error;
+        })
+      );
+  }
 }

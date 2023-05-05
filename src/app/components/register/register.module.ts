@@ -4,6 +4,9 @@ import { RegisterComponent } from './register.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { RouterLink, RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -13,7 +16,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     CommonModule,
     MatCardModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatButtonModule,
+    FormsModule,
+    RouterLink,
+    RouterModule,
   ]
 })
 export class RegisterModule { }
