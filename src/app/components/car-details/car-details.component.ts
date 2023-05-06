@@ -15,8 +15,8 @@ export class CarDetailsComponent implements OnInit {
   bodyStyle?: string;
   dateOfManufacturing?: string;
   errorMessage?: string;
-  buttonLabel: string = "Create";
-  title: string = "Create car";
+  buttonLabel: string = 'Create';
+  title: string = 'Create car';
 
   constructor(
     private readonly route: ActivatedRoute,
@@ -27,7 +27,7 @@ export class CarDetailsComponent implements OnInit {
     this.route.params.subscribe((params) => {
       this.car = params as Car;
       if (this.car.brand) {
-        this.title = "Details of car";
+        this.title = 'Details of car';
         this.buttonLabel = 'Update';
         this.brand = this.car.brand;
         this.series = this.car.series;
@@ -40,7 +40,19 @@ export class CarDetailsComponent implements OnInit {
   }
 
   updateOrCreateCar(): void {
-    if (this.car?.brand) {
+    if (this.car?.brand && this.isFormValid()) {
+      this.carService.updateCar(
+        this.car.id,
+        this.brand!,
+        this.series!,
+        this.bodyStyle!,
+        new Date(this.dateOfManufacturing!)
+      ).subscribe((result) => {
+        if (result.httpStatusNumber === 201) {
+          // this.clearForm();
+          console.log("Update is successful");
+        }
+      });
     } else {
       if (this.isFormValid()) {
         this.carService
