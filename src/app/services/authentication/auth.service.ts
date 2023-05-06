@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, of } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
+import { BackendResponse } from 'src/app/models/httpResponse';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -74,6 +75,19 @@ export class AuthService {
           }
           throw error;
         })
+      );
+  }
+
+  logout(): Observable<BackendResponse> {
+    return this.httpClient
+      .post<BackendResponse>(
+        environment.baseUrl + '/users/logout',
+        {},
+        {
+          headers: this.headers,
+          responseType: 'json',
+          withCredentials: true,
+        }
       );
   }
 }
