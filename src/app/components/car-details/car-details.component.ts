@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/car';
+import { AuthService } from 'src/app/services/authentication/auth.service';
 import { CarService } from 'src/app/services/car.service';
 
 @Component({
@@ -20,7 +21,8 @@ export class CarDetailsComponent implements OnInit {
 
   constructor(
     private readonly route: ActivatedRoute,
-    private readonly carService: CarService
+    private readonly carService: CarService,
+    private readonly authService: AuthService
   ) {}
 
   ngOnInit() {
