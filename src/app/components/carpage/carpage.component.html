@@ -1,0 +1,29 @@
+<mat-table [dataSource]="cars" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+    <mat-cell *matCellDef="let car">{{ car.id }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="brand">
+    <mat-header-cell *matHeaderCellDef>Brand</mat-header-cell>
+    <mat-cell *matCellDef="let car">{{ car.brand }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="series">
+    <mat-header-cell *matHeaderCellDef>Series</mat-header-cell>
+    <mat-cell *matCellDef="let car">{{ car.series }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="bodyStyle">
+    <mat-header-cell *matHeaderCellDef>Body Style</mat-header-cell>
+    <mat-cell *matCellDef="let car">{{ car.bodyStyle }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="dateOfManufacturing">
+    <mat-header-cell *matHeaderCellDef>Date of Manufacturing</mat-header-cell>
+    <mat-cell *matCellDef="let car">{{ car.dateOfManufacturing | date }}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
