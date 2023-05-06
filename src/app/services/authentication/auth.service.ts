@@ -9,6 +9,11 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
   headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  options = {
+    headers: this.headers,
+    responseType: 'json',
+    withCredentials: true,
+  };
 
   constructor(private httpClient: HttpClient) {}
 
@@ -53,14 +58,18 @@ export class AuthService {
       );
   }
 
-  register(username?: string, password?: string, birthdate?: Date): Observable<string> {
+  register(
+    username?: string,
+    password?: string,
+    birthdate?: Date
+  ): Observable<string> {
     return this.httpClient
       .post<string>(
         environment.baseUrl + '/users/register',
         {
           username: username,
           password: password,
-          birthdate: birthdate
+          birthdate: birthdate,
         },
         {
           headers: this.headers,
@@ -79,15 +88,14 @@ export class AuthService {
   }
 
   logout(): Observable<BackendResponse> {
-    return this.httpClient
-      .post<BackendResponse>(
-        environment.baseUrl + '/users/logout',
-        {},
-        {
-          headers: this.headers,
-          responseType: 'json',
-          withCredentials: true,
-        }
-      );
+    return this.httpClient.post<BackendResponse>(
+      environment.baseUrl + '/users/logout',
+      {},
+      {
+        headers: this.headers,
+        responseType: 'json',
+        withCredentials: true,
+      }
+    );
   }
 }

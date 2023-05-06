@@ -24,6 +24,13 @@
     <mat-cell *matCellDef="let car">{{ car.dateOfManufacturing | date }}</mat-cell>
   </ng-container>
 
+  <ng-container matColumnDef="deleteButton">
+    <mat-header-cell *matHeaderCellDef>Delete car</mat-header-cell>
+    <mat-cell *matCellDef="let car">
+      <button mat-button color="primary" (click)="deleteCar(car.id)">Delete</button>
+    </mat-cell>
+  </ng-container>
+
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
