@@ -7,6 +7,7 @@ import { HomeModule } from './components/home/home.module';
 import { RegisterModule } from './components/register/register.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarModule } from './components/navbar/navbar.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     LoginModule,
     HomeModule,
     RegisterModule,
+    NavbarModule,
     BrowserAnimationsModule,
     HttpClientModule,
   ],
