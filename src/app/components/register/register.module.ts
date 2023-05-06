@@ -21,6 +21,9 @@ import { MatButtonModule } from '@angular/material/button';
     FormsModule,
     RouterLink,
     RouterModule,
+  ],
+  exports: [
+    RegisterComponent
   ]
 })
 export class RegisterModule { }
