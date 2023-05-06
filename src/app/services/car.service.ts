@@ -41,4 +41,22 @@ export class CarService {
       }
     );
   }
+
+  createCar(brand: string, series: string, bodyStyle: string, dateOfManufacturing: Date): Observable<BackendResponse> {
+    console.log("dateoffff", dateOfManufacturing);
+    return this.httpClient.post<BackendResponse>(
+      environment.baseUrl + '/cars/create',
+      {
+        brand: brand,
+        series: series,
+        bodyStyle: bodyStyle,
+        dateOfManufacturing: dateOfManufacturing
+      },
+      {
+        headers: this.headers,
+        responseType: 'json',
+        withCredentials: true,
+      }
+    );
+  }
 }
