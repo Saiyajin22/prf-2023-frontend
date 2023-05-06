@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { Car } from 'src/app/models/car';
 import { CarService } from 'src/app/services/car.service';
 
@@ -18,9 +19,13 @@ export class CarpageComponent implements OnInit {
     'bodyStyle',
     'dateOfManufacturing',
     'deleteButton',
+    'detailsButton',
   ];
 
-  constructor(private readonly carService: CarService) {}
+  constructor(
+    private readonly carService: CarService,
+    private readonly router: Router
+  ) {}
 
   ngOnInit(): void {
     this.fetchCars();
@@ -34,9 +39,13 @@ export class CarpageComponent implements OnInit {
 
   deleteCar(id: string): void {
     this.carService.deleteCarById(id).subscribe((result) => {
-      if(result.httpStatusNumber === 200){
+      if (result.httpStatusNumber === 200) {
         this.fetchCars();
       }
     });
+  }
+
+  goToDetails(car: Car): void {
+    this.router.navigate(['/car-details', car]);
   }
 }

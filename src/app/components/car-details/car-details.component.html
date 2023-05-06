@@ -1,0 +1,67 @@
+<div class="container">
+  <mat-card>
+    <mat-card-title>Car details</mat-card-title>
+    <mat-card-content>
+      <form (ngSubmit)="updateOrCreateCar()" class="styled-form">
+        <mat-form-field
+          class="element"
+        >
+          <mat-label>Brand</mat-label>
+          <input
+            [(ngModel)]="brand"
+            matInput
+            type="text"
+            name="brand"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field
+          class="element"
+        >
+          <mat-label>Series</mat-label>
+          <input
+            [(ngModel)]="series"
+            matInput
+            type="text"
+            name="series"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field class="element">
+          <mat-label>BodyStyle</mat-label>
+          <input
+            [(ngModel)]="bodyStyle"
+            matInput
+            type="text"
+            name="bodyStyle"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field
+          class="element"
+        >
+          <mat-label>Date of Manufacturing</mat-label>
+          <input
+            [(ngModel)]="dateOfManufacturing"
+            matInput
+            type="date"
+            name="dateOfManufacturing"
+            required
+          />
+        </mat-form-field>
+        <button class="element" mat-raised-button color="primary" type="submit">
+          Update Car
+        </button>
+        <button
+          class="element"
+          mat-raised-button
+          color="primary"
+          [routerLink]="['/home']"
+        >
+          Back to home
+        </button>
+        <p class="form-error" *ngIf="errorMessage">{{ errorMessage }}</p>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

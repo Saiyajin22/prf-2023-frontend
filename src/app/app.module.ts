@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarModule } from './components/navbar/navbar.module';
 import { CarpageModule } from './components/carpage/carpage.module';
+import { CarDetailsModule } from './components/car-details/car-details.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CarpageModule } from './components/carpage/carpage.module';
     HomeModule,
     RegisterModule,
     NavbarModule,
-    CarpageModule
+    CarpageModule,
+    CarDetailsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
