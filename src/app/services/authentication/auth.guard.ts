@@ -1,4 +1,9 @@
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import {
+  CanActivate,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  Router,
+} from '@angular/router';
 import { AuthService } from './auth.service';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
@@ -23,7 +28,10 @@ export class AuthGuard implements CanActivate {
     );
   }
 
-  canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  canActivateChild(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): boolean {
     return true;
   }
 }

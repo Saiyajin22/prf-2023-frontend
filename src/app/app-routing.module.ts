@@ -6,6 +6,7 @@ import { AuthGuard } from './services/authentication/auth.guard';
 import { RegisterComponent } from './components/register/register.component';
 import { CarDetailsComponent } from './components/car-details/car-details.component';
 import { CarpageComponent } from './components/carpage/carpage.component';
+import { AdminPageComponent } from './components/admin-page/admin-page.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,20 @@ const routes: Routes = [
     component: HomeComponent,
     canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
-    children: [],
+    children: [
+      {
+        path: 'car-details',
+        component: CarDetailsComponent,
+      },
+      {
+        path: 'car-page',
+        component: CarpageComponent,
+      },
+      {
+        path: 'admin-page',
+        component: AdminPageComponent,
+      },
+    ],
   },
   {
     path: 'login',
@@ -27,14 +41,6 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
-  },
-  {
-    path: 'car-details',
-    component: CarDetailsComponent,
-  },
-  {
-    path: 'car-page',
-    component: CarpageComponent,
   },
 ];
 
