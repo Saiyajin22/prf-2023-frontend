@@ -1,1 +1,24 @@
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.styled-form {
+  display: flex;
+  flex-direction: column;
+  width: 50vh;
+}
+
+.element {
+  margin-top: 30px;
+}
+
+.form-error {
+  margin-top: 20px;
+  color: red;
+}

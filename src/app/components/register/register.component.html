@@ -1,1 +1,74 @@
-<p>register works!</p>
+<div class="register-container">
+  <mat-card>
+    <mat-card-title>Register</mat-card-title>
+    <mat-card-content>
+      <form (ngSubmit)="register()" class="register-form">
+        <mat-form-field
+          hintLabel="Please provide a simple username"
+          class="element"
+        >
+          <mat-label>Username</mat-label>
+          <input
+            [(ngModel)]="username"
+            matInput
+            type="text"
+            name="username"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field
+          hintLabel="Your password should be at least 8 characters, include numbers too"
+          class="element"
+        >
+          <mat-label>Password</mat-label>
+          <input
+            [(ngModel)]="password"
+            matInput
+            type="password"
+            name="password"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field hintLabel="Repeat your password here" class="element">
+          <mat-label>Repeat Password</mat-label>
+          <input
+            [(ngModel)]="repeatPassword"
+            matInput
+            type="password"
+            name="repeatPassword"
+            required
+          />
+        </mat-form-field>
+        <!-- <mat-form-field hintLabel="Currently: 3 - Admin, 1 - User">
+          <mat-label>Access Level</mat-label>
+          <input matInput type="number" value="1" disabled>
+        </mat-form-field> -->
+        <mat-form-field
+          hintLabel="Enter the date of your birth"
+          class="birthdate"
+        >
+          <mat-label>Birthdate</mat-label>
+          <input
+            [(ngModel)]="birthdate"
+            matInput
+            type="date"
+            name="birthdate"
+            required
+          />
+        </mat-form-field>
+        <button class="element" mat-raised-button color="primary" type="submit">
+          Register
+        </button>
+        <button
+          class="element"
+          mat-raised-button
+          color="primary"
+          [routerLink]="['/login']"
+        >
+          Back to login
+        </button>
+        <p class="form-error" *ngIf="errorMessage">{{ errorMessage }}</p>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

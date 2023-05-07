@@ -7,19 +7,29 @@ import { HomeModule } from './components/home/home.module';
 import { RegisterModule } from './components/register/register.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarModule } from './components/navbar/navbar.module';
+import { CarpageModule } from './components/carpage/carpage.module';
+import { CarDetailsModule } from './components/car-details/car-details.module';
+import { AdminPageModule } from './components/admin-page/admin-page.module';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    //Built in components
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    //My components
     LoginModule,
     HomeModule,
     RegisterModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
+    NavbarModule,
+    CarpageModule,
+    CarDetailsModule,
+    AdminPageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

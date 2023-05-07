@@ -1,0 +1,22 @@
+<div class="navbar">
+  <button class="element" mat-raised-button color="primary" (click)="logout()">
+    Logout
+  </button>
+  <button
+    class="element"
+    mat-raised-button
+    color="primary"
+    [routerLink]="['/home/car-details']"
+  >
+    Create car
+  </button>
+  <button
+    *ngIf="currentUser && currentUser.accessLevel === 3"
+    class="element"
+    mat-raised-button
+    color="primary"
+    [routerLink]="['/home/admin-page']"
+  >
+    Admin page
+  </button>
+</div>

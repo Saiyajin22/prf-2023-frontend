@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { map } from 'rxjs';
 import { AuthService } from 'src/app/services/authentication/auth.service';
 
 @Component({
@@ -19,6 +18,7 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     this.authService.login(this.username, this.password).subscribe((result) => {
+      console.log('RESULT: ', result);
       if (result.toLowerCase().includes('successful')) {
         this.router.navigate(['/home']);
       } else {
