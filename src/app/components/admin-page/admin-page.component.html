@@ -1,1 +1,38 @@
-<p>admin-page works!</p>
+<mat-table [dataSource]="users" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+    <mat-cell *matCellDef="let user">{{ user.id }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="username">
+    <mat-header-cell *matHeaderCellDef>Username</mat-header-cell>
+    <mat-cell *matCellDef="let user">{{ user.username }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="accessLevel">
+    <mat-header-cell *matHeaderCellDef>Access level</mat-header-cell>
+    <mat-cell *matCellDef="let user">{{ user.accessLevel }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="birthdate">
+    <mat-header-cell *matHeaderCellDef>Birthdate</mat-header-cell>
+    <mat-cell *matCellDef="let user">{{ user.birthdate | date }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="deleteButton">
+    <mat-header-cell *matHeaderCellDef>Delete car</mat-header-cell>
+    <mat-cell *matCellDef="let user">
+      <button mat-button color="primary" (click)="deleteUser(user.id)">Delete</button>
+    </mat-cell>
+  </ng-container>
+
+  <!-- <ng-container matColumnDef="detailsButton">
+    <mat-header-cell *matHeaderCellDef>Details</mat-header-cell>
+    <mat-cell *matCellDef="let user">
+      <button mat-button color="primary" (click)="goToDetails(user)">Details</button>
+    </mat-cell>
+  </ng-container> -->
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

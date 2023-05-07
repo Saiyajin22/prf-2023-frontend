@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarModule } from './components/navbar/navbar.module';
 import { CarpageModule } from './components/carpage/carpage.module';
 import { CarDetailsModule } from './components/car-details/car-details.module';
+import { AdminPageModule } from './components/admin-page/admin-page.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CarDetailsModule } from './components/car-details/car-details.module';
     RegisterModule,
     NavbarModule,
     CarpageModule,
-    CarDetailsModule
+    CarDetailsModule,
+    AdminPageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
