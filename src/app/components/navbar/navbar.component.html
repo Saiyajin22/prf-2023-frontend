@@ -11,6 +11,7 @@
     Create car
   </button>
   <button
+    *ngIf="currentUser && currentUser.accessLevel === 3"
     class="element"
     mat-raised-button
     color="primary"

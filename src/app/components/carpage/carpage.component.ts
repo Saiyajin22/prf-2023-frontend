@@ -46,6 +46,6 @@ export class CarpageComponent implements OnInit {
   }
 
   goToDetails(car: Car): void {
-    this.router.navigate(['/car-details', car]);
+    this.router.navigate(['/home/car-details', car]);
   }
 }
