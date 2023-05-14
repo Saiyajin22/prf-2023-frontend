@@ -12,27 +12,7 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '/login',
-    pathMatch: 'full'
-  },
-  {
-    path: 'home',
-    component: HomeComponent,
-    canActivate: [AuthGuard],
-    canActivateChild: [AuthGuard],
-    children: [
-      {
-        path: 'car-details',
-        component: CarDetailsComponent,
-      },
-      {
-        path: 'car-page',
-        component: CarpageComponent,
-      },
-      {
-        path: 'admin-page',
-        component: AdminPageComponent,
-      },
-    ],
+    pathMatch: 'full',
   },
   {
     path: 'login',
@@ -42,10 +22,32 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent,
   },
+  {
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    children: [],
+  },
+  {
+    path: 'car-details',
+    component: CarDetailsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'car-page',
+    component: CarpageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin-page',
+    component: AdminPageComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
